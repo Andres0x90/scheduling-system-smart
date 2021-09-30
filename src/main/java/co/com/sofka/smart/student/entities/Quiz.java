@@ -2,8 +2,7 @@ package co.com.sofka.smart.student.entities;
 
 import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.smart.generic.values.Book;
-import co.com.sofka.smart.student.values.DateTaken;
-import co.com.sofka.smart.student.values.QuizId;
+import co.com.sofka.smart.student.values.*;
 import co.com.sofka.smart.teacher.values.TeacherId;
 
 import java.util.List;
@@ -18,17 +17,30 @@ public class Quiz extends Entity<QuizId> {
     private Status status;
 
     public Quiz(QuizId entityId, TeacherId teacherId, Book book, Module module,
-                List<Item> items, DateTaken dateTaken, Score score, Status status) {
+                 DateTaken dateTaken, Score score, Status status) {
         super(entityId);
         this.teacherId = teacherId;
         this.book = book;
         this.module = module;
-        this.items = items;
         this.dateTaken = dateTaken;
         this.score = score;
         this.status = status;
     }
 
+    public void addAnswer(String question,String answer)
+    {
+        items.add(new Item(question,answer));
+    }
+    public void assignScore(Integer grade)
+    {
+        this.score = new Score(grade);
+        this.status = new Status("CALIFICADO");
+    }
+    public void updateScore(Integer grade)
+    {
+        this.score = new Score(grade);
+        this.status = new Status("CALIFICACION CAMBIADA");
+    }
     public TeacherId teacherId() {
         return teacherId;
     }

@@ -14,12 +14,12 @@ public class Class extends Entity<ClassId> {
     private Status status;
     private DateTaken date;
 
-    public Class(ClassId classId, Book book, Module module, PageNumber pageNumber, Status status, DateTaken date) {
+    public Class(ClassId classId, Book book, Module module, PageNumber pageNumber, DateTaken date) {
         super(classId);
         this.book = book;
         this.module = module;
         this.pageNumber = pageNumber;
-        this.status = status;
+        this.status = new Status("PROGRAMADA");
         this.date = date;
     }
 
