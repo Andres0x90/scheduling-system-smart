@@ -2,22 +2,25 @@ package co.com.sofka.smart.student.commands;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.smart.generic.values.Address;
+import co.com.sofka.smart.generic.values.Age;
 import co.com.sofka.smart.generic.values.Name;
 import co.com.sofka.smart.student.values.*;
 
 public class CreateStudent extends Command {
     private final StudentId studentId;
     private final Name name;
+    private final Age age;
     private final Address address;
     private final Username username;
     private final Password password;
     private final Email email;
     private final Signature signature;
 
-    public CreateStudent(StudentId studentId, Name name, Address address, Username username,
-                          Password password, Email email, Signature signature) {
+    public CreateStudent(StudentId studentId, Name name, Age age, Address address, Username username,
+                         Password password, Email email, Signature signature) {
         this.studentId = studentId;
         this.name = name;
+        this.age = age;
         this.address = address;
         this.username = username;
         this.password = password;
@@ -31,6 +34,10 @@ public class CreateStudent extends Command {
 
     public Name getName() {
         return name;
+    }
+
+    public Age getAge() {
+        return age;
     }
 
     public Address getAddress() {
