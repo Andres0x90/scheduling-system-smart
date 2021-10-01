@@ -12,7 +12,7 @@ public class TeacherChange extends EventChange {
     public WritingTask findWritingTaskById(Teacher teacher, WritingTaskId writingTaskId)
     {
         return teacher.writingTasks.stream().filter(writingTask ->
-                writingTask.identity().equals(writingTaskId)).findFirst()
+                writingTask.identity().value().equals(writingTaskId.value())).findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }
     public StudentReinforcementReport findStudentReinforcementReportById(Teacher teacher,
@@ -20,7 +20,7 @@ public class TeacherChange extends EventChange {
     {
         return teacher.studentReinforcementReports.stream().filter(studentReinforcementReport ->
                         studentReinforcementReport
-                                .identity().equals(studentReinforcementReportIdId)).findFirst()
+                                .identity().value().equals(studentReinforcementReportIdId.value())).findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }
 

@@ -16,7 +16,7 @@ public class StudentChange extends EventChange {
     public Class findClassById(Student student, ClassId classId)
     {
         return student.classes.stream().filter(classStudent ->
-            classStudent.identity().equals(classId)
+            classStudent.identity().value().equals(classId.value())
         ).findFirst().orElseThrow(IllegalArgumentException::new);
     }
 

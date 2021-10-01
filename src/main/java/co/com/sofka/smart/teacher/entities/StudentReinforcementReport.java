@@ -35,7 +35,7 @@ public class StudentReinforcementReport extends Entity<StudentReinforcementRepor
     public void removeRequirement(Requirement requirement)
     {
         this.requirements.stream().filter(requirementFilter ->
-                !requirementFilter.equals(requirement));
+                !requirementFilter.value().equals(requirement.value()));
     }
 
     public StudentId studentId() {
