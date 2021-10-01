@@ -16,30 +16,32 @@ public class Quiz extends Entity<QuizId> {
     private Score score;
     private Status status;
 
-    public Quiz(QuizId entityId, TeacherId teacherId, Book book, Module module,
-                 DateTaken dateTaken, Score score, Status status) {
-        super(entityId);
+    public Quiz(QuizId quizId, TeacherId teacherId, Book book, Module module,
+                 DateTaken dateTaken, Status status) {
+        super(quizId);
         this.teacherId = teacherId;
         this.book = book;
         this.module = module;
         this.dateTaken = dateTaken;
-        this.score = score;
         this.status = status;
     }
-
+    public void updateDate(DateTaken dateTaken)
+    {
+        this.dateTaken = dateTaken;
+    }
     public void addAnswer(String question,String answer)
     {
         items.add(new Item(question,answer));
     }
-    public void assignScore(Integer grade)
+    public void assignScore(Integer grade, Status status)
     {
         this.score = new Score(grade);
-        this.status = new Status("CALIFICADO");
+        this.status = status;
     }
-    public void updateScore(Integer grade)
+    public void updateScore(Integer grade, Status status)
     {
         this.score = new Score(grade);
-        this.status = new Status("CALIFICACION CAMBIADA");
+        this.status = status;
     }
     public TeacherId teacherId() {
         return teacherId;

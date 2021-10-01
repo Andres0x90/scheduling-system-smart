@@ -17,11 +17,15 @@ public class Agreement extends Entity<AgreementId> {
     private DateTaken periodOfValidity;
     private Signature signature;
 
-    public Agreement(AgreementId agreementId, List<Condition> conditions, Signature signature) {
+    public Agreement(AgreementId agreementId, List<Condition> conditions) {
         super(agreementId);
         this.conditions = conditions;
-        this.signature = signature;
         this.assignPeriodOfValidity();
+    }
+
+    public void sign(Signature signature)
+    {
+        this.signature = signature;
     }
 
     private void assignPeriodOfValidity()
