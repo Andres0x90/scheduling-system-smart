@@ -28,11 +28,12 @@ class CreateStudentUseCaseTest {
                 new Signature("Andres M Cano")
         );
         var useCase = new CreateStudentUseCase();
+
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command)).orElseThrow()
                 .getDomainEvents();
-
         var studentCreated = (StudentCreated) events.get(0);
+
         Assertions.assertEquals("xxx-xxx", studentCreated.getStudentId().value());
         Assertions.assertEquals("Andres Mauricio", studentCreated.getName().value().firstName());
         Assertions.assertEquals("Cano Causil", studentCreated.getName().value().lastName());

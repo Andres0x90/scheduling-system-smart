@@ -2,27 +2,31 @@ package co.com.sofka.smart.student.commands;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.smart.generic.values.Book;
-import co.com.sofka.smart.student.values.ClassId;
-import co.com.sofka.smart.student.values.DateTaken;
-import co.com.sofka.smart.student.values.PageNumber;
-import co.com.sofka.smart.student.values.Status;
+import co.com.sofka.smart.generic.values.ModuleBook;
+import co.com.sofka.smart.student.values.*;
 
 public class ScheduleClass extends Command {
+    private final StudentId studentId;
     private final ClassId classId;
     private final Book book;
-    private final Module module;
+    private final ModuleBook module;
     private final PageNumber pageNumber;
     private final Status status;
     private final DateTaken dateTaken;
 
-    public ScheduleClass(ClassId classId, Book book, Module module, PageNumber pageNumber,
+    public ScheduleClass(StudentId studentId, ClassId classId, Book book, ModuleBook module, PageNumber pageNumber,
                          Status status, DateTaken dateTaken) {
+        this.studentId = studentId;
         this.classId = classId;
         this.book = book;
         this.module = module;
         this.pageNumber = pageNumber;
         this.status = status;
         this.dateTaken = dateTaken;
+    }
+
+    public StudentId getStudentId() {
+        return studentId;
     }
 
     public ClassId getClassId() {
@@ -33,7 +37,7 @@ public class ScheduleClass extends Command {
         return book;
     }
 
-    public Module getModule() {
+    public ModuleBook getModule() {
         return module;
     }
 

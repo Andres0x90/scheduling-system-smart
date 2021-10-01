@@ -32,18 +32,13 @@ class ChangePersonalDataUseCaseTest {
         Mockito.when(repository.getEventsBy("xxx-xxx")).thenReturn(StudentStorage.getStudentData());
         var studentEvents = repository.getEventsBy("xxx-xxx");
         var student = Student.from(StudentId.of("xxx-xxx"), studentEvents);
-
-        Assertions.assertEquals("xxx-xxx", student.identity().value());
-        Assertions.assertEquals("Andres Mauricio", student.name().value().firstName());
-        Assertions.assertEquals("19", student.age().value());
-        Assertions.assertEquals("Las brisas", student.address().value().neighborhood());
-
         var command = new ChangePersonalData(
                 student.identity(), new Name("Juan", "Perez"), new Age("26"),
                 new Address("Avenida", "45", "37-32", "Gratamira")
         );
         var useCase = new ChangePersonalDataUseCase();
         useCase.addRepository(repository);
+
          var studentPersonalDataChanged = (PersonalDataChanged)UseCaseHandler.getInstance().
                  syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow().getDomainEvents().get(0);

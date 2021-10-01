@@ -85,7 +85,7 @@ public class Student extends AggregateEvent<StudentId> {
         appendChange(new AgreementPeriodOfValidityExtended()).apply();
     }
     public void scheduleQuiz(QuizId quizId, TeacherId teacherId, Book book, ModuleBook module,
-                             DateTaken dateTaken, Status status){
+                             DateTaken dateTaken){
         appendChange(new QuizScheduled(quizId, teacherId, book, module, dateTaken)).apply();
     }
     public void changeQuizDateToTake(QuizId quizId, DateTaken dateTaken)
