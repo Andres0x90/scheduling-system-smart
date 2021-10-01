@@ -4,11 +4,11 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Module implements ValueObject<String> {
+public class ModuleBook implements ValueObject<String> {
 
     private final String value;
 
-    public Module(String value) {
+    public ModuleBook(String value) {
         this.value = Objects.requireNonNull(value, "El campo modulo es requerido");
     }
 

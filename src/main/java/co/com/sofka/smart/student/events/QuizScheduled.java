@@ -2,25 +2,25 @@ package co.com.sofka.smart.student.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.smart.generic.values.Book;
+import co.com.sofka.smart.generic.values.ModuleBook;
 import co.com.sofka.smart.student.values.DateTaken;
 import co.com.sofka.smart.student.values.QuizId;
-import co.com.sofka.smart.student.values.Status;
 import co.com.sofka.smart.teacher.values.TeacherId;
 
 public class QuizScheduled extends DomainEvent {
     private final QuizId quizId;
     private final TeacherId teacherId;
     private final Book book;
-    private final Module module;
+    private final ModuleBook moduleBook;
     private final DateTaken dateTaken;
 
-    public QuizScheduled(QuizId quizId, TeacherId teacherId, Book book, Module module,
+    public QuizScheduled(QuizId quizId, TeacherId teacherId, Book book, ModuleBook moduleBook,
                          DateTaken dateTaken) {
         super("smart.student.quizscheduled");
         this.quizId = quizId;
         this.teacherId = teacherId;
         this.book = book;
-        this.module = module;
+        this.moduleBook = moduleBook;
         this.dateTaken = dateTaken;
     }
 
@@ -36,8 +36,8 @@ public class QuizScheduled extends DomainEvent {
         return book;
     }
 
-    public Module getModule() {
-        return module;
+    public ModuleBook getModule() {
+        return moduleBook;
     }
 
     public DateTaken getDateTaken() {

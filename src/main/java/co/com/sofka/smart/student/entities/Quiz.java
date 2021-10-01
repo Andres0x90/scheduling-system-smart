@@ -2,6 +2,7 @@ package co.com.sofka.smart.student.entities;
 
 import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.smart.generic.values.Book;
+import co.com.sofka.smart.generic.values.ModuleBook;
 import co.com.sofka.smart.student.values.*;
 import co.com.sofka.smart.teacher.values.TeacherId;
 
@@ -10,18 +11,18 @@ import java.util.List;
 public class Quiz extends Entity<QuizId> {
     private TeacherId teacherId;
     private Book book;
-    private Module module;
+    private ModuleBook moduleBook;
     private List<Item>items;
     private DateTaken dateTaken;
     private Score score;
     private Status status;
 
-    public Quiz(QuizId quizId, TeacherId teacherId, Book book, Module module,
+    public Quiz(QuizId quizId, TeacherId teacherId, Book book, ModuleBook moduleBook,
                  DateTaken dateTaken, Status status) {
         super(quizId);
         this.teacherId = teacherId;
         this.book = book;
-        this.module = module;
+        this.moduleBook = moduleBook;
         this.dateTaken = dateTaken;
         this.status = status;
     }
@@ -51,8 +52,8 @@ public class Quiz extends Entity<QuizId> {
         return book;
     }
 
-    public Module module() {
-        return module;
+    public ModuleBook module() {
+        return moduleBook;
     }
 
     public List<Item> items() {

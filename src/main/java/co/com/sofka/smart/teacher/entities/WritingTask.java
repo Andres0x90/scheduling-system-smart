@@ -3,22 +3,23 @@ package co.com.sofka.smart.teacher.entities;
 import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.smart.generic.values.Book;
 import co.com.sofka.smart.generic.values.Description;
+import co.com.sofka.smart.generic.values.ModuleBook;
 import co.com.sofka.smart.generic.values.Title;
-import co.com.sofka.smart.teacher.values.WrittingTaskId;
+import co.com.sofka.smart.teacher.values.WritingTaskId;
 
-public class WritingTask extends Entity<WrittingTaskId> {
+public class WritingTask extends Entity<WritingTaskId> {
     private Title title;
     private Description description;
     private Book book;
-    private Module module;
+    private ModuleBook moduleBook;
 
-    public WritingTask(WrittingTaskId writtingTaskId, Title title, Description description,
-                       Book book, Module module) {
-        super(writtingTaskId);
+    public WritingTask(WritingTaskId writingTaskId, Title title, Description description,
+                       Book book, ModuleBook moduleBook) {
+        super(writingTaskId);
         this.title = title;
         this.description = description;
         this.book = book;
-        this.module = module;
+        this.moduleBook = moduleBook;
     }
 
     public void updateTitle(Title title)
@@ -42,7 +43,7 @@ public class WritingTask extends Entity<WrittingTaskId> {
         return book;
     }
 
-    public Module module() {
-        return module;
+    public ModuleBook module() {
+        return moduleBook;
     }
 }

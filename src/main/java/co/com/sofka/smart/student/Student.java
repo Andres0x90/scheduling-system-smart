@@ -2,10 +2,7 @@ package co.com.sofka.smart.student;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.smart.generic.values.Address;
-import co.com.sofka.smart.generic.values.Age;
-import co.com.sofka.smart.generic.values.Book;
-import co.com.sofka.smart.generic.values.Name;
+import co.com.sofka.smart.generic.values.*;
 import co.com.sofka.smart.student.entities.Agreement;
 import co.com.sofka.smart.student.entities.Class;
 import co.com.sofka.smart.student.entities.Quiz;
@@ -14,7 +11,6 @@ import co.com.sofka.smart.student.events.*;
 import co.com.sofka.smart.student.values.*;
 import co.com.sofka.smart.teacher.values.TeacherId;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends AggregateEvent<StudentId> {
@@ -49,7 +45,7 @@ public class Student extends AggregateEvent<StudentId> {
         appendChange(new PersonalDataChanged(name, age, address)).apply();
     }
 
-    public void scheduleClass(ClassId classId, Book book, Module module, PageNumber pageNumber,
+    public void scheduleClass(ClassId classId, Book book, ModuleBook module, PageNumber pageNumber,
                               Status status, DateTaken dateTaken)
     {
         appendChange(new ClassScheduled(classId, book, module, pageNumber, status, dateTaken))
@@ -88,7 +84,7 @@ public class Student extends AggregateEvent<StudentId> {
     {
         appendChange(new AgreementPeriodOfValidityExtended()).apply();
     }
-    public void scheduleQuiz(QuizId quizId, TeacherId teacherId, Book book, Module module,
+    public void scheduleQuiz(QuizId quizId, TeacherId teacherId, Book book, ModuleBook module,
                              DateTaken dateTaken, Status status){
         appendChange(new QuizScheduled(quizId, teacherId, book, module, dateTaken)).apply();
     }
