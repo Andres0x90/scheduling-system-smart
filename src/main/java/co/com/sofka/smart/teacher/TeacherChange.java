@@ -7,6 +7,8 @@ import co.com.sofka.smart.teacher.events.*;
 import co.com.sofka.smart.teacher.values.StudentReinforcementReportId;
 import co.com.sofka.smart.teacher.values.WritingTaskId;
 
+import java.util.ArrayList;
+
 public class TeacherChange extends EventChange {
 
     public WritingTask findWritingTaskById(Teacher teacher, WritingTaskId writingTaskId)
@@ -31,6 +33,8 @@ public class TeacherChange extends EventChange {
             teacher.age = event.getAge();
             teacher.address = event.getAddress();
             teacher.languages = event.getLanguages();
+            teacher.writingTasks = new ArrayList<>();
+            teacher.studentReinforcementReports = new ArrayList<>();
         });
         apply((WritingTaskCreated event)->
         {
