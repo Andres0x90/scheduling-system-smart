@@ -18,6 +18,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.text.ParseException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,8 +29,7 @@ class ChangePersonalDataUseCaseTest {
     DomainEventRepository repository;
 
     @Test
-    public void changePersonalData()
-    {
+    public void changePersonalData() throws ParseException {
         Mockito.when(repository.getEventsBy("xxx-xxx")).thenReturn(StudentStorage.getStudentData());
         var studentEvents = repository.getEventsBy("xxx-xxx");
         var student = Student.from(StudentId.of("xxx-xxx"), studentEvents);

@@ -124,11 +124,11 @@ public class Student extends AggregateEvent<StudentId> {
         return agreement;
     }
 
-    public List<Class> getClasses() {
+    public List<Class> classes() {
         return classes;
     }
 
-    public List<Quiz> getQuizzes() {
+    public List<Quiz> quizzes() {
         return quizzes;
     }
 }

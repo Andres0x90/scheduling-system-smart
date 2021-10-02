@@ -6,7 +6,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.smart.student.Student;
 import co.com.sofka.smart.student.commands.ChangeWorkBookAccountEmail;
 
-public class ChangeEmail extends UseCase<RequestCommand<ChangeWorkBookAccountEmail>, ResponseEvents> {
+public class ChangeEmailUseCase extends UseCase<RequestCommand<ChangeWorkBookAccountEmail>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<ChangeWorkBookAccountEmail> changeEmailRequestCommand) {
         var command = changeEmailRequestCommand.getCommand();

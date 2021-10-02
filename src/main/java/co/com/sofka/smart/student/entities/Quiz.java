@@ -6,6 +6,7 @@ import co.com.sofka.smart.generic.values.ModuleBook;
 import co.com.sofka.smart.student.values.*;
 import co.com.sofka.smart.teacher.values.TeacherId;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz extends Entity<QuizId> {
@@ -25,6 +26,7 @@ public class Quiz extends Entity<QuizId> {
         this.moduleBook = moduleBook;
         this.dateTaken = dateTaken;
         this.status = status;
+        this.items = new ArrayList<>();
     }
     public void updateDate(DateTaken dateTaken)
     {
